@@ -1,0 +1,32 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: MicroservicioUsuarios
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:create-drop}
+    open-in-view: true
+    show-sql: true
+
+  security:
+    jwt:
+      private-key: ${JWT_PRIVATE_KEY:HolaMundo}
+      user-creator: ${JWT_USER_CREATOR:Yo}
+
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    server-url:
+      defaultZone: http://127.0.0.1:8761/eureka
